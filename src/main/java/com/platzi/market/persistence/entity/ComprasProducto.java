@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table (name = "compras_productos")
-public class ComprasProdcuto {
+public class ComprasProducto {
 
     @EmbeddedId
     private ComprasProductoPK id;
@@ -13,7 +13,16 @@ public class ComprasProdcuto {
 
     private Double total;
 
-    private Boolean estadoo;
+    private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private Compra compra;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    private Producto producto;
+
 
     public ComprasProductoPK getId() {
         return id;
@@ -39,11 +48,11 @@ public class ComprasProdcuto {
         this.total = total;
     }
 
-    public Boolean getEstadoo() {
-        return estadoo;
+    public Boolean getEstado() {
+        return estado;
     }
 
-    public void setEstadoo(Boolean estadoo) {
-        this.estadoo = estadoo;
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
     }
 }
