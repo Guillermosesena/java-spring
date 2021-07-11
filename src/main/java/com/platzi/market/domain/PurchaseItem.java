@@ -6,11 +6,11 @@ public class PurchaseItem {
     private double total;
     private boolean active;
 
-    public int getProductoId() {
+    public int getProductId() {
         return productId;
     }
 
-    public void setProductoId(int productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 
